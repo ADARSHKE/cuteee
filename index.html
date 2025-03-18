@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 150;
+            background: url('./images/2024_03_31_17_15_IMG_0502.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(-45deg);
+            position: absolute;
+            animation: float 3s linear infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        .button {
+            padding: 20px 30px;
+            background-color: rgb(20, 19, 19);
+            color: rgb(255, 255, 255);
+            font-size: 18px;
+            border: none;
+            border-radius: 70px;
+            cursor: pointer;
+            position: absolute;
+            z-index: 10;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            background: url('./images/2024_09_30_14_30_IMG_0987.JPG') no-repeat center center/cover;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 220px;
+            border-radius: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            font-size: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: rgb(255, 255, 255);
+            z-index: 20;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="button" onclick="showMessage()">give me a 👋❤️</button>
+    <div class="popup" id="popup">Heyyyy myyy Sun,my Moon,my skyyyy <br>Good Morningg Baeee❤️ <br> smilleeeeeeee i can see your smile from tooo faarrrr. <br>
+        small bites on your cutestttt dimpless. <br>Having a wonderfull dayyyy kunjaaaa. <br></div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("popup").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("popup").style.display = "none";
+            }, 3000);
+            for (let i = 0; i < 30; i++) {
+                createHeart();
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            document.body.appendChild(heart);
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>
